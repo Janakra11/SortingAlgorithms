@@ -1,0 +1,52 @@
+package com.pack;
+
+import java.util.Scanner;
+
+public class BubbleSortDemo {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+      //Scanner sc = new Scanner(System.in);
+      
+      //int n = sc.nextInt();
+      //System.out.println("no is "+n);
+      
+      int arr[] = {3,4,10,34,89,2,8,9,6};
+      
+      System.out.println("before sorting arr is ");
+      for (int i : arr) {
+		System.out.println(i+"\t");
+	  }
+      
+      System.out.println("after sorting arr is ");
+
+      bubbleSort(arr);
+      
+      for (int i : arr) {
+  		System.out.println(i+"\t");
+  	  }
+	}
+
+	
+	//Sorting algorithm 
+	//bubblesort- soarting array checking adjcent element rearrangaing correct to sort the array
+	
+	public static void bubbleSort(int arr[])
+	{
+		int n = arr.length;
+		
+		for (int i = 0; i < n; i++) {
+			
+			for (int j = 0; j < n-i-1; j++) {
+				
+				if(arr[j] > arr[j+1])
+				{
+					int temp = arr[j+1];
+					arr[j+1] = arr[j];
+					arr[j] = temp;
+				}
+				
+			}
+		}
+	}
+}
