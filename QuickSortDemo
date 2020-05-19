@@ -1,0 +1,62 @@
+package com.pack;
+
+public class QuickSortDemo {
+
+	public static void quickSort(int arr[], int low, int high)
+	{
+		int n =arr.length;
+		
+		if(low < high)
+		{
+			int pi = partition(arr, low, high);
+			
+			quickSort(arr, low, pi-1);
+			quickSort(arr, pi+1, high);
+		}
+		
+		
+	}
+	
+	public static int partition(int arr[], int low, int high)
+	{
+		int pivot = arr[high];
+		int i = low-1;
+		
+		for (int j = low; j < high; j++) {
+			
+			if(arr[j] <= pivot)
+			{
+				i++;
+				int temp = arr[i];
+				arr[i] = arr[j];
+				arr[j] = temp;
+			}
+		}
+		
+		int temp = arr[i+1];
+		arr[i+1] = arr[high];
+		arr[high] = temp;
+		
+		return i+1;
+		
+	}
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int arr[] = {3,4,10,34,89,2,8,9,6};
+	      
+	      System.out.println("before sorting arr is ");
+	      for (int i : arr) {
+			System.out.println(i+"\t");
+		  }
+	      
+	      System.out.println("after sorting arr is ");
+
+	      quickSort(arr, 0, 8);
+	      
+	      for (int i : arr) {
+	  		System.out.println(i+"\t");
+	  	  }
+	}
+
+}
