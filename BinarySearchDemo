@@ -1,0 +1,27 @@
+package com.pack;
+
+public class BinarySearchDemo {
+
+	public static int binarySearch(int arr[], int l, int r, int x)
+	{
+		if(l<=r)
+		{
+			int mid=l + (r-1)/2;
+			
+			if(arr[mid] == x)
+				return mid;
+			else if(arr[mid] > x)
+				return binarySearch(arr, l, mid-1, x);
+			else
+				return binarySearch(arr, mid+1, r, x);
+		}
+		return -1;
+	}
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int arr[] = {2,3,4,6,8,9,10,34,89,100};
+	      
+	      System.out.println("Searching 89 in arr is at index : "+binarySearch(arr, 0, 9, 100));
+	}
+
+}
